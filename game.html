@@ -7,9 +7,9 @@
 <body id="main">
 	<script type="text/javascript">
 		orientationCheck();
-		window.addEventListener('orientationchange', orientationCheck);
-		
 		alert(orientation);
+		window.addEventListener('orientationchange', orientationCheck);
+		window.addEventListener('orientationchange', alert(orientation))
 	</script>
 </body>
 </html>
