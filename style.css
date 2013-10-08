@@ -52,3 +52,8 @@ a:visited {
 td:hover {
 	background-color: Aquamarine;
 }
+
+#boundary {
+	border: 1px solid;
+	background-color: DimGrey;
+}

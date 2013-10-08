@@ -1,26 +1,54 @@
 // this creates the board for portrait mode
 
-var boardPortrait = function() {
-	for (var i = 0; i < 23; i++) {
-		document.writeln("<tr>")
-			for (var j = 0; j < (10); j++) {
-			document.writeln("<td id='b" + i+j +"' style='border:1px solid; padding: 10px; margin: 0; width:10px; height:10px'>" + i + j + "</td>");
-		} 
-		document.writeln("</tr>")
+var board = function() {
+	if (window.screen.width < 480){
+		if (window.orientation === 0 || window.orientation === 180) {
+			for (var i = 0; i < 23; i++) {
+				document.writeln("<tr>")
+					document.writeln("<td id='boundary'>boundary</td>")
+					for (var j = 0; j < (10); j++) {
+					document.writeln("<td id='b" + i+j +"' style='border:1px solid; padding: 10px; margin: 0; width:10px; height:10px'>" + i + j + "</td>");
+					} 
+					document.writeln("<td id='boundary'>boundary</td>")
+				document.writeln("</tr>")
+			}
+			document.writeln("<tr>")
+				for (var j = 0; j < (12); j++) {
+					document.writeln("<td id='boundary'>boundary</td>");
+				}
+		} else { //landscape here 
+			for (var i = 0; i < 10; i++) {
+				document.writeln("<tr>")
+					document.writeln("<td id='boundary'>boundary</td>")
+					for (var j = 0; j < (23); j++) {
+					document.writeln("<td id='b"+ i+j +"' style='border:1px solid; padding: 10px; margin: 0; width:10px; height:10px'>" + i + j + "</td>");
+					} 
+					document.writeln("<td id='boundary'>boundary</td>")
+				document.writeln("</tr>")
+			}
+			document.writeln("<tr>")
+				for (var j = 0; j < (25); j++) {
+					document.writeln("<td id='boundary'>boundary</td>");
+					}
+		}
+	} else {
+		for (var i = 0; i < 23; i++) {
+				document.writeln("<tr>")
+					document.writeln("<td id='boundary'>boundary</td>")
+					for (var j = 0; j < (10); j++) {
+					document.writeln("<td id='b" + i+j +"' style='border:1px solid; padding: 10px; margin: 0; width:10px; height:10px'>" + i + j + "</td>");
+					} 
+					document.writeln("<td id='boundary'>boundary</td>")
+				document.writeln("</tr>")
+			}
+			document.writeln("<tr>")
+				for (var j = 0; j < (12); j++) {
+					document.writeln("<td id='boundary'>boundary</td>");
+				}
+
 	}
 };
 
-// this creates the board for landscape mode
-
-var boardLandscape = function() {
-	for (var i = 0; i < 10; i++) {
-		document.writeln("<tr>")
-			for (var j = 0; j < (23); j++) {
-			document.writeln("<td id='b"+ i+j +"' style='border:1px solid; padding: 10px; margin: 0; width:10px; height:10px'>" + i + j + "</td>");
-		} 
-		document.writeln("</tr>")
-	}
-};
 
 // listen for orientation changes
 
@@ -58,6 +86,9 @@ var shapeColor = [
 	"blue", // j shape
 	"DarkOrange" // l shape
 ];
+
+
+// creating blocks at the top of the board if another shape is already there - game over
 
 var createBlock = function() {
 	var typeBlock = Math.floor(Math.random()*7);
