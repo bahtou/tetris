@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tetris in JavaScript!</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="game.js"></script>
+	<title>Game Play</title>	
 </head>
 <body id="main">
-		<nav id='gameNav'>
-			<a href="#" style="float:right;">Start Game</a>
-			<a href="main.html">Return to Main Menu</a>
-			<a href="javascript:createBlock()" style="float:right; clear: both">Create Shape</a>
-		</nav>
-
-		<table id="board">
-			<script type="text/javascript">
-				board();
-			</script>
-		</table>
-
+	<script type="text/javascript">
+		if (window.orientation === undefined){document.writeln("You are on a desktop")} else {document.writeln('The orientation of this device is ' + window.orientation + ' deg.')};
+	</script>
 </body>
 </html>

@@ -1,9 +1,7 @@
 body {
 	width: 500px;
 }
-tr:first-child, tr:nth-child(2) {
-	display: none;
-}
+
 
 a {
 	text-decoration: none;
