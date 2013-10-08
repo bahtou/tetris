@@ -1,4 +1,30 @@
+//checking orientation
+var orientation; 
+
+function orientationCheck() {
+	if (window.orientation === undefined){
+		orientation = 'Desktop';
+		return orientation;
+	} else {
+		if (window.orientation === 0 || window.orientation === 180) {
+			orientation = 'Portrait';
+			return orientation;
+		} else {
+			orientation = 'Landscape';
+			return orientation;
+		}
+	};
+}
+
+
 // creating the board
+
+var pit = new Object();
+pit.vdepth = 20;
+pit.hwidth = 10;
+pit.create = function() {
+
+};
 
 var board = function() {
 	var end = "<td id='boundary'>br</td>";
@@ -20,7 +46,7 @@ var board = function() {
 
 // use arrays for each shape 
 
-var shapeFormulas = [
+var blockformula = [
 	[[0,0],[1,0],[2,0],[3,0]], // line
 	[[0,0],[1,0],[2,0],[1,1]], //t-shape
 	[[0,0],[1,0],[0,1],[1,1]], //square
@@ -30,7 +56,7 @@ var shapeFormulas = [
 	[[0,1],[1,1],[2,1],[2,0]] // l shape
 ];
 
-var shapeColor = [
+var blockcolor = [
 	"Aqua", // for line
 	"purple", // for t-shape
 	"yellow", // for square
@@ -42,18 +68,3 @@ var shapeColor = [
 
 
 // creating blocks at the top of the board if another shape is already there - game over
-
-var createBlock = function() {
-	var typeBlock = Math.floor(Math.random()*7);
-	for (var i = 0; i < 4; i++) {
-		document.getElementById('b' + shapes[typeBlock][i]).style.backgroundColor=shapeColor[typeBlock];
-	}
-};
-
-window.addEventListener('load', function(){ // on page load
- 
- document.body.addEventListener('touchstart', function(e){
-  alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
- }, false)
- 
-}, false)
