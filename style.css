@@ -1,0 +1,54 @@
+body {
+	width: 500px;
+}
+tr:first-child, tr:nth-child(2) {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 50px;
+	padding: 10px;
+	font-size: 1.5em;
+	display:block;
+	text-align: center;
+	margin: 10px;
+	color: #000;
+	background-color: #FFF;
+	clear:both;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+a:hover {
+	background-color: aqua;
+}
+
+a:visited {
+	color: #000;
+}
+
+#mainNav {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+	border: 1px solid;
+	box-shadow: 1px 1px 1px #000;
+	background-color: AliceBlue;
+	border-radius: 25px;
+}
+
+#gameNav {
+	position: absolute;
+	top: 100px;
+	left: 750px;
+	border: 1px solid;
+	box-shadow: 1px 1px 1px #000;
+	background-color: AliceBlue;
+	border-radius: 25px;
+}
+
+td:hover {
+	background-color: Aquamarine;
+}

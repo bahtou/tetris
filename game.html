@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tetris in JavaScript!</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body id="main">
+		<nav id='gameNav'>
+			<a href="#" style="float:right;">Start Game</a>
+			<a href="main.html">Return to Main Menu</a>
+			<a href="javascript:createBlock()" style="float:right; clear: both">Create Shape</a>
+		</nav>
+
+		<table id="board" style="border: 2px solid grey; box-shadow: 1px 1px 1px;">
+			<script type="text/javascript">
+				if (window.orientation === 90 || window.orientation === -90) {
+					boardLandscape();
+				} else {
+					boardPortrait()
+				}
+				moveRow();
+			</script>
+		</table>
+
+</body>
+</html>
