@@ -6,13 +6,20 @@
 <body id="main">
 	<script type="text/javascript">
 		function orientationCheck() {
-			if (window.orientation === undefined){document.writeln("You are on a desktop")} else {document.writeln('The orientation of this device is ' + window.orientation + ' deg.')};
+			if (window.orientation === undefined){
+				document.writeln("You are on a desktop")
+			} else {
+				if (window.orientation === 0 || window.orientation === 180) {
+					alert('You are in Portrait')
+				} else {
+					alert('You are in Landscape')
+				}
+			};
 		}
 
 		orientationCheck();
-		
-		window.addEventListener('orientationchange', orientationCheck);
 
+		window.addEventListener('orientationchange', orientationCheck);
 		
 	</script>
 </body>
