@@ -5,7 +5,15 @@
 </head>
 <body id="main">
 	<script type="text/javascript">
-		if (window.orientation === undefined){document.writeln("You are on a desktop")} else {document.writeln('The orientation of this device is ' + window.orientation + ' deg.')};
+		function orientationCheck() {
+			if (window.orientation === undefined){document.writeln("You are on a desktop")} else {document.writeln('The orientation of this device is ' + window.orientation + ' deg.')};
+		}
+
+		orientationCheck();
+		
+		window.addEventListener('orientationchange', orientationCheck);
+
+		
 	</script>
 </body>
 </html>
