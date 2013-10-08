@@ -33,7 +33,7 @@ var board = function() {
 					document.writeln(end);
 					}
 		}
-	} else {
+	} else { // desktop version
 		for (var i = 0; i < 23; i++) {
 				document.writeln("<tr>")
 					document.writeln(end)
@@ -102,3 +102,11 @@ var createBlock = function() {
 		document.getElementById('b' + shapes[typeBlock][i]).style.backgroundColor=shapeColor[typeBlock];
 	}
 };
+
+window.addEventListener('load', function(){ // on page load
+ 
+ document.body.addEventListener('touchstart', function(e){
+  alert(e.changedTouches[0].pageX) // alert pageX coordinate of touch point
+ }, false)
+ 
+}, false)
