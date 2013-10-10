@@ -12,8 +12,10 @@ var orientationCheck = function() {
 	} else {
 		if (window.orientation === 0 || window.orientation === 180) {
 			orientation = 'Portrait';
+			alert(orientation);
 		} else {
 			orientation = 'Landscape';
+			alert(orientation);
 		}
 	};
 }
