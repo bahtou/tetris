@@ -8,9 +8,13 @@
 <body id="main">
 	<table>
 		<script type="text/javascript">
+			
+			orientationCheck();
+			pit.layout();
 			window.addEventListener('orientationchange', orientationCheck);
-			alert(orientation);
-			pit();
+			window.addEventListener('orientationchange', pit.layout);
+			pit.create();
+			
 		</script>
 	</table>
 </body>

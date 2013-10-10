@@ -2,31 +2,61 @@
 
 var MYAPP = {};
 
-/////////////ORIENTATION CHECK AND SET//////////////////
+/////////////ORIENTATION CHECK//////////////////
 
 var orientation;
 
 var orientationCheck = function() {
-	if (window.orientation === undefined){
-		orientation = 'Desktop';
+	if (window.orientation === undefined) {
+		alert('Desktop');
 	} else {
 		if (window.orientation === 0 || window.orientation === 180) {
-			orientation = 'Portrait';
-			alert(orientation);
+			alert('Portrait');
 		} else {
-			orientation = 'Landscape';
-			alert(orientation);
+			alert('Landscape');
 		}
-	};
+	}
 }
 
-//////////// CREATE BOARD OF TD ELEMENTS///////////////////
+//////////// CREATE PIT OBJECT AND METHODS///////////////////
 
-var vheight; // number of rows
+var pit = {
+	vheight : 0,  // number of rows
+	hwidth : 0,  // number of columns
+	
+	//// Setting the board dimensions based on orientation //////
+
+	layout : function() {
+		if (window.orientation === 0 || window.orientation === 180) {
+			this.vheight = 20;
+			this.hwidth = 10;
+		} else {
+			this.vheight = 10;
+			this.hwidth = 20;
+		}
+	}, // End of Method
+
+	////// Creating the board ///////
+
+	create : function() { 
+		var i;
+		var j;
+		for (i = 0; i < this.hwidth; i++) {
+			for (j = 0; j < this.vheight; j++) {
+				document.write("0");
+			}
+			document.write("<br />");
+		}
+	} // EOM
+};
+
+
+/*var vheight; // number of rows
 var hwidth; // number of columns
 
 // Setting the board dimensions based on orientation
-if (orientation === 'Portrait' || orientation === 'Desktop') {
+
+if (window.orientation === 0 || window.orientation === 180) {
 	vheight = 20;
 	hwidth = 10;
 } else {
@@ -46,7 +76,7 @@ var pit = function () {
 	}
 }
 
-
+*/
 
 ////// SHAPE FORMULAS AND COLORS //////////////
 
