@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Game Play</title>
-	<script type="text/javascript" src="game.js"></script>	
+	<title>Tetris</title>
+	<script type="text/javascript" src="game.js"></script>
+	<link rel="stylesheet" type="text/css" href="">
 </head>
 <body id="main">
-	<script type="text/javascript">
-		orientationCheck();
-		alert(orientation);
-		window.addEventListener('orientationchange', orientationCheck);
-		window.addEventListener('orientationchange', alert(orientation))
-	</script>
+	<table>
+		<script type="text/javascript">
+			orientationCheck();
+			window.addEventListener('orientationchange', orientationCheck);
+			alert(orientation);
+			pit();
+		</script>
+	</table>
 </body>
 </html>

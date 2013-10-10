@@ -1,50 +1,52 @@
-//checking orientation
-var orientation; 
+//// SETTING UP A GLOBAL MASTER VARIABLE //////////
 
-function orientationCheck() {
+var MYAPP = {};
+
+/////////////ORIENTATION CHECK AND SET//////////////////
+
+var orientation;
+
+var orientationCheck = function() {
 	if (window.orientation === undefined){
-		orientation = 'Desktop';
-		return orientation;
+		this.orientation = 'Desktop';
 	} else {
 		if (window.orientation === 0 || window.orientation === 180) {
-			orientation = 'Portrait';
-			return orientation;
+			this.orientation = 'Portrait';
 		} else {
-			orientation = 'Landscape';
-			return orientation;
+			this.orientation = 'Landscape';
 		}
 	};
 }
 
+//////////// CREATE BOARD OF TD ELEMENTS///////////////////
 
-// creating the board
+var vheight; // number of rows
+var hwidth; // number of columns
 
-var pit = new Object();
-pit.vdepth = 20;
-pit.hwidth = 10;
-pit.create = function() {
+// Setting the board dimensions based on orientation
+if (orientation === 'Portrait' || orientation === 'Desktop') {
+	vheight = 20;
+	hwidth = 10;
+} else {
+	vheight = 10;
+	hwidth = 20;
+}
 
-};
+// Creating the board
+var pit = function () {
+	var i;
+	var j;
+	for (i = 0; i < hwidth; i++) {
+		for (j = 0; j < vheight; j++) {
+			document.write("0");
+		}
+		document.write("<br />");
+	}
+}
 
-var board = function() {
-	var end = "<td id='boundary'>br</td>";
 
-	for (var i = 0; i < 23; i++) {
-				document.writeln("<tr>")
-					document.writeln(end)
-					for (var j = 0; j < (10); j++) {
-					document.writeln("<td><span>" + i + j + "</span></td>");
-					} 
-					document.writeln(end)
-				document.writeln("</tr>")
-			}
-			document.writeln("<tr>")
-				for (var j = 0; j < (12); j++) {
-					document.writeln(end);
-				}
-};
 
-// use arrays for each shape 
+////// SHAPE FORMULAS AND COLORS //////////////
 
 var blockformula = [
 	[[0,0],[1,0],[2,0],[3,0]], // line
@@ -67,4 +69,11 @@ var blockcolor = [
 ];
 
 
-// creating blocks at the top of the board if another shape is already there - game over
+//////// CREATE BLOCKS ///////////////////////
+
+
+function blockMake(type,atcol,atrow){
+	blockformula[type,atcol,atrow]
+}
+
+
