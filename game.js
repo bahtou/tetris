@@ -8,12 +8,12 @@ var orientation;
 
 var orientationCheck = function() {
 	if (window.orientation === undefined){
-		this.orientation = 'Desktop';
+		orientation = 'Desktop';
 	} else {
 		if (window.orientation === 0 || window.orientation === 180) {
-			this.orientation = 'Portrait';
+			orientation = 'Portrait';
 		} else {
-			this.orientation = 'Landscape';
+			orientation = 'Landscape';
 		}
 	};
 }
