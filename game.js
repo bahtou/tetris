@@ -18,67 +18,103 @@ var orientationCheck = function() {
 	}
 }
 
+///////////// TOUCH EVENTS ////////////////////////////
+
+var allTouches = event.touches;
+
 //////////// CREATE PIT OBJECT AND METHODS///////////////////
 
 var pit = {
-	vheight : 0,  // number of rows
+	depth : 0,  // number of rows
 	hwidth : 0,  // number of columns
 	
-	//// Setting the board dimensions based on orientation //////
+	//// BOARD DIMENSIONS AND ORIENTATION //////
 
 	layout : function() {
-		if (window.orientation === 0 || window.orientation === 180) {
-			this.vheight = 20;
-			this.hwidth = 10;
-		} else {
-			this.vheight = 10;
-			this.hwidth = 20;
+		switch (window.orientation) {
+			case 0:
+			case 180:
+				this.depth = 20;
+				this.hwidth = 10;
+				break;
+			case 90:
+			case -90:
+				this.depth = 10;
+				this.hwidth = 20;
+				break;
+			default:
+				this.depth = 20;
+				this.hwidth = 10;
 		}
 	}, // End of Method
 
-	////// Creating the board ///////
+	////// CREATE BOARD ///////
 
+	board : [],
+	
 	create : function() { 
 		var i;
 		var j;
-		for (i = 0; i < this.hwidth; i++) {
-			for (j = 0; j < this.vheight; j++) {
-				document.write("0");
+		for (i = 0; i < this.depth; i++) {
+			var colArray = [];				// Nested Array 
+			for (j = 0; j < this.hwidth; j++) {
+				colArray.push("0");
 			}
-			document.write("<br />");
+			colArray.push("<br />") // 10th Element is a line break to keep! 
+			this.board.push(colArray);
 		}
-	} // EOM
+	}, // EOM
+
+	///// GETTER METHODS //////// /////// CHANGE NAME? //////
+
+	getFirstOccupiedRowAtColumn : function(col) {
+		var row = 1;
+		for (var i = 0; i < this.depth; i++) {
+			if (pit.board[i][col] != 0 ) {
+				row += i;
+				break;
+			}
+		}
+		return row;
+	}, // EOM
+
+	getLeftMostAvailableColumnAtRow : function(row) {
+		var col = 1;
+		for (var i = 0; i < this.hwidth; i++) {
+			if (pit.board[row][i] == 0) {
+				col += i;
+				break; 
+			}
+		}
+		return col;
+	}, // EOM
+
+	getRightMostAvailableColumnAtRow : function(row) {
+		var col = 1;
+		for (var i = this.hwidth-1; i >= 0; i--) {
+			if (pit.board[row][i] == 0) {
+				col += i;
+				break; 
+			}
+		}
+		return col;
+	}, // EOM
 };
 
+/// END OF PIT OBJECT ////
 
-/*var vheight; // number of rows
-var hwidth; // number of columns
 
-// Setting the board dimensions based on orientation
 
-if (window.orientation === 0 || window.orientation === 180) {
-	vheight = 20;
-	hwidth = 10;
-} else {
-	vheight = 10;
-	hwidth = 20;
-}
+////// CREATE A BLOCK CLASS //////////////
 
-// Creating the board
-var pit = function () {
-	var i;
-	var j;
-	for (i = 0; i < hwidth; i++) {
-		for (j = 0; j < vheight; j++) {
-			document.write("0");
-		}
-		document.write("<br />");
+function Block() {
+	this.top = pit.board[0];
+	this.left = top[4];
+	this.rotation = [0,90,180,270];
+	this.create = function(a,b,c,d) {
+		pit.board[0]
 	}
 }
-
-*/
-
-////// SHAPE FORMULAS AND COLORS //////////////
 
 var blockformula = [
 	[[0,0],[1,0],[2,0],[3,0]], // line
@@ -89,7 +125,7 @@ var blockformula = [
 	[[0,0],[1,0],[2,0],[2,1]], // j shape
 	[[0,1],[1,1],[2,1],[2,0]] // l shape
 ];
-
+ 
 var blockcolor = [
 	"Aqua", // for line
 	"purple", // for t-shape
@@ -102,10 +138,5 @@ var blockcolor = [
 
 
 //////// CREATE BLOCKS ///////////////////////
-
-
-function blockMake(type,atcol,atrow){
-	blockformula[type,atcol,atrow]
-}
 
 

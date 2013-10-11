@@ -15,6 +15,22 @@
 			window.addEventListener('orientationchange', pit.layout);
 			pit.create();
 			
+			pit.board[10][9] = 2;
+			pit.board[2][9] = 2;
+			pit.board[0][1] = 2;
+			pit.board[0][9] = 2;
+
+			document.writeln(pit.board);
+
+			document.writeln(pit.getFirstOccupiedRowAtColumn(9));
+
+			document.writeln(pit.getLeftMostAvailableColumnAtRow(0));
+
+			document.writeln(pit.getRightMostAvailableColumnAtRow(0));
+
+			alert(allTouches);
+
+			
 		</script>
 	</table>
 </body>
