@@ -20,7 +20,20 @@ var orientationCheck = function() {
 
 ///////////// TOUCH EVENTS ////////////////////////////
 
-var allTouches = event.touches;
+
+
+//// ALT REGISTER OF TOUCH EVENT HANDLERS ////
+
+function touchStart(event) {
+	var allTouches = event.touches;
+	alert(allTouches);
+}
+
+document.addEventListener("touchstart", touchStart, false);
+
+/*element.addEventListener("touchmove", touchMove, false);
+element.addEventListener("touchend", touchEnd, false);
+element.addEventListener("touchcancel", touchCancel, false); */
 
 //////////// CREATE PIT OBJECT AND METHODS///////////////////
 

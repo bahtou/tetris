@@ -6,32 +6,50 @@
 	<link rel="stylesheet" type="text/css" href="">
 </head>
 <body id="main">
+	
+	<!-- REGISTER MULTI-TOUCH HANDLERS -->
+	
+	<!-- <div
+		ontouchstart="touchStart(event);"
+		ontouchmove="touchMove(event);"
+		ontouchend="touchEnd(event);"
+		ontouchcancel="touchCancel(event);"
+	></div> 
+
+
+		INLINE TOUCH EVENTS -->
+
+
 	<table>
-		<script type="text/javascript">
+		
+		<!-- TETRIS BOARD -->
+
+		<td id="board">
+			<script type="text/javascript">
 			
-			orientationCheck();
-			pit.layout();
-			window.addEventListener('orientationchange', orientationCheck);
-			window.addEventListener('orientationchange', pit.layout);
-			pit.create();
+				orientationCheck();
+				pit.layout();
+				window.addEventListener('orientationchange', orientationCheck, false);
+				window.addEventListener('orientationchange', pit.layout, false);
+				pit.create();
+				
+				pit.board[10][9] = 2;
+				pit.board[2][9] = 2;
+				pit.board[0][1] = 2;
+				pit.board[0][9] = 2;
+
+				document.writeln(pit.board);
+
+				document.writeln(pit.getFirstOccupiedRowAtColumn(9));
+
+				document.writeln(pit.getLeftMostAvailableColumnAtRow(0));
+
+				document.writeln(pit.getRightMostAvailableColumnAtRow(0));
+
+
 			
-			pit.board[10][9] = 2;
-			pit.board[2][9] = 2;
-			pit.board[0][1] = 2;
-			pit.board[0][9] = 2;
-
-			document.writeln(pit.board);
-
-			document.writeln(pit.getFirstOccupiedRowAtColumn(9));
-
-			document.writeln(pit.getLeftMostAvailableColumnAtRow(0));
-
-			document.writeln(pit.getRightMostAvailableColumnAtRow(0));
-
-			alert(allTouches);
-
-			
-		</script>
+			</script>
+		</td>
 	</table>
 </body>
 </html>
