@@ -26,8 +26,26 @@ var orientationCheck = function() {
 
 function touchStart(event) {
 	var allTouches = event.touches;
+	var changedTouches = event.changedTouches;
+	var numberTouches = event.touches.length;
+	var x = event.touches[0].pageX;
+	var y = event.touches[0].pageY;
 	alert(allTouches);
+	alert(changedTouches);
+	alert(numberTouches);
+	alert(x + " and " + y);
 }
+
+/* 
+
+/////// TO USE /////
+function touchMove(event) {
+    event.preventDefault();
+    curX = event.targetTouches[0].pageX - startX;
+    curY = event.targetTouches[0].pageY - startY;
+    event.targetTouches[0].target.style.webkitTransform =
+        'translate(' + curX + 'px, ' + curY + 'px)';
+} */
 
 document.addEventListener("touchstart", touchStart, false);
 

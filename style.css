@@ -1,3 +1,29 @@
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width:320px) {
+body {
+    width: auto;
+}
+/* some other style */  
+}
+
+
+body {
+	width: 500px;
+}
+
+
+td {
+	border: 1px solid;
+	font-size: 2em;
+	line-height: 1em;
+}
+table {
+	
+}
+/*
+
 body {
 	width: 500px;
 }
@@ -75,3 +101,4 @@ table {
 	border: 3px solid;
 	box-shadow: 2px 2px 2px #000;
 }
+*/
