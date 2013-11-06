@@ -24,19 +24,14 @@
 		
 		<!-- TETRIS BOARD -->
 
-		<td id="board">
+		<td id="board" onkeypress="keyEvent()">
 			<script type="text/javascript">
 			
-				orientationCheck();
+				/* orientationCheck();
 				pit.layout();
 				window.addEventListener('orientationchange', orientationCheck, false);
 				window.addEventListener('orientationchange', pit.layout, false);
 				pit.create();
-				
-				pit.board[10][9] = 2;
-				pit.board[2][9] = 2;
-				pit.board[0][1] = 2;
-				pit.board[0][9] = 2;
 
 				document.writeln(pit.board);
 
@@ -44,12 +39,25 @@
 
 				document.writeln(pit.getLeftMostAvailableColumnAtRow(0));
 
-				document.writeln(pit.getRightMostAvailableColumnAtRow(0));
+				document.writeln(pit.getRightMostAvailableColumnAtRow(0)); */
 
 
+			pitcreate();
 			
 			</script>
 		</td>
+
+		<nav>
+			<a href="javascript:blockMotion()">Start Block Motion</a>
+			<a href="javascript:blockStop()">Stop Block Motion</a>
+			<a href="javascript:createBlock(4,0)">Make Block</a>
+			<a href="javascript:moveLeft()">Move Left</a>
+			<a href="javascript:moveRight()">Move Right</a>
+			<a href="javascript:moveDown()">Move Down</a>
+			<a href="javascript:rotate()">Rotate</a>
+			<a href="javascript:console.log(blockedPieces)">Block Check</a>
+		</nav>
 	</table>
+	<div id = "bulletin"></div>
 </body>
 </html>
